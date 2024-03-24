@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import {useOptimistic, useRef, useState, useTransition} from "react";
 import {redirectToPolls, savePoll, votePoll} from "./actions";
+// @ts-ignore
 import { v4 as uuidv4 } from "uuid";
 import {Poll} from "./types";
 import {useRouter, useSearchParams} from "next/navigation";
