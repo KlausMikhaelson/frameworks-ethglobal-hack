@@ -95,7 +95,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                                     overflow: 'visible',
                                  }}
                                  >
-                                        {opt.percentOfTotal}
+                                        {opt.votes}
                                  </div>
                                  : 
                                  <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
