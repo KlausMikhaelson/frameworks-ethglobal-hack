@@ -124,7 +124,7 @@ export function PollCreateForm() {
                         type="text"
                         name="title"
                         placeholder="Title"
-                        className="pl-3 cursor-pointer pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
+                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
                     />
                     <div className="my-2">
                     <div className="file-upload items-center justify-center">

@@ -37,10 +37,10 @@ export default async function Page() {
           <Image src={require("./image-removebg-preview.png")} alt="Farcaster Logo" width={100} height={100} />
         </div>
         <h1 className="text-lg sm:text-2xl font-bold mb-2">
-          Farcaster Polls
+          ShareSphere
         </h1>
         <h2 className="text-md sm:text-xl mx-4">
-          Create a new poll with upto 4 options
+          Perfect your vision with ShareSphere
         </h2>
         <div className="flex flex-wrap items-center justify-around max-w-4xl my-8 sm:w-full bg-white rounded-md shadow-xl h-full border border-gray-100">
           <PollCreateForm />
