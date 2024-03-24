@@ -29,7 +29,7 @@ async function getPolls() {
 
 export default async function Page() {
     const polls = await getPolls();
-    console.log(polls);
+    console.log(polls, "in page fileee");
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <main className="flex flex-col items-center justify-center flex-1 px-4 sm:px-20 text-center">

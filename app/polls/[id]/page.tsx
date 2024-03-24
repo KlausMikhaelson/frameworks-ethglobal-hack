@@ -26,7 +26,7 @@ async function getPoll(id: string): Promise<Poll> {
             return nullPoll;
         }
 
-        console.log(poll);
+        console.log(poll, "in page with iddd");
 
         return poll;
     } catch (error) {
@@ -70,18 +70,6 @@ export async function generateMetadata(
         metadataBase: new URL(process.env['HOST'] || '')
     }
 }
-function getMeta(
-    poll: Poll
-) {
-    // This didn't work for some reason
-    return (
-        <Head>
-            <meta property="og:image" content="" key="test"></meta>
-            <meta property="og:title" content="My page title" key="title"/>
-        </Head>
-    );
-}
-
 
 export default async function Page({params}: { params: {id: string}}) {
     const poll = await getPoll(params.id);

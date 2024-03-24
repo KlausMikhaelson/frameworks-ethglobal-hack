@@ -57,7 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 height: '100%',
                 backgroundColor: 'f4f4f4',
                 padding: 50,
-                lineHeight: 1.2,
+                // lineHeight: 1.2,
                 fontSize: 24,
             }}>
                 <div style={{
@@ -69,7 +69,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     {
                         pollData.options.map((opt, index) => {
                             return (
-                                <div style={{
+                                <>
+                                {showResults ?
+                                 <div
+                                 style={{
                                     backgroundColor:  showResults ? '#007bff' : '',
                                     color: '#fff',
                                     padding: 10,
@@ -78,7 +81,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                                     width: `${showResults ? opt.percentOfTotal : 100}%`,
                                     whiteSpace: 'nowrap',
                                     overflow: 'visible',
-                                }}>{opt.text}</div>
+                                 }}
+                                 >
+                                        {opt.percentOfTotal}
+                                 </div>
+                                 : 
+                                <img style={{
+                                    // backgroundColor:  showResults ? '#007bff' : '',
+                                    // color: '#fff',
+                                    // padding: 10,
+                                    // marginBottom: 10,
+                                    // borderRadius: 4,
+                                    // // width: `${showResults ? opt.percentOfTotal : 100}%`,
+                                    // whiteSpace: 'nowrap',
+                                    // overflow: 'visible',
+                                }}
+                                src={`https://turquoise-occasional-meerkat-627.mypinata.cloud/ipfs/${opt.option}?pinataGatewayToken=WO8LWfz8QTiolWn6Y93P0WzI3rjaVSi8xS3W8H2Kr6UDqsbNKIx2L8XbrrY1b9pl`}
+                                />
+                                }
+                                </>
                             )
                         })
                     }
