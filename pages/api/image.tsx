@@ -72,6 +72,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                             display: 'flex',
                             flexDirection: 'column',
                             borderRadius: 4,
+                            
                         } : {
                             display: 'flex',
                             padding: 20,
@@ -100,14 +101,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                                  : 
                                  <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                 <img style={{
-                                    // backgroundColor:  showResults ? '#007bff' : '',
-                                    // color: '#fff',
-                                    // padding: 10,
-                                    // marginBottom: 10,
-                                    // borderRadius: 4,
-                                    // // width: `${showResults ? opt.percentOfTotal : 100}%`,
-                                    // whiteSpace: 'nowrap',
-                                    // overflow: 'visible',
                                     width: 150,
                                     height: 150,
                                     padding: 10,
@@ -122,7 +115,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         })
                     }
                     </div>
-                    {/*{showResults ? <h3 style={{color: "darkgray"}}>Total votes: {totalVotes}</h3> : ''}*/}
+                    {/* {showResults ? <h3 style={{color: "darkgray"}}>Total votes: {totalVotes}</h3> : ''} */}
                 </div>
             </div>
             ,

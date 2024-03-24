@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Poll } from "./types";
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
+import Image from "next/image";
 const JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI2Yzc0ODU2ZC04YTRlLTQ5NWQtOGMwMC0yZTUzODE4YTU0ODAiLCJlbWFpbCI6InNhdHlhbXNpbmdoNTA3NkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiOGUyYjllYWFhMmQxODYxMzAyODQiLCJzY29wZWRLZXlTZWNyZXQiOiI0ODg3OTRmOTJjMDkyMDE0MjUzMzU1OTgzYzcyNjFjZjZiM2VkODI0YjQ4ZGE2Y2NkMzk1NjcwNDczMmRhZTlhIiwiaWF0IjoxNzExMjY5NzIwfQ.cMvw-DYZwA2yAZpf4nss39CVyVtUptFxKBm602n6BSA';
 
 type PollState = {
@@ -87,9 +88,9 @@ export function PollCreateForm() {
 
     return (
         <>
-            <div className="mx-8 w-full">
+            <div className="mx-8 w-full gap-2">
                 <form
-                    className="relative my-8"
+                    className="relative my-8 gap-2"
                     ref={formRef}
                     action={saveWithNewPoll}
                     onSubmit={(event) => {
@@ -120,43 +121,80 @@ export function PollCreateForm() {
                     }}
                 >
                     <input
-                        type="file"
-                        id="file1"
-                        name="option1"
-                        accept="image/*"
-                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
-                        onChange={(event) => pinFileToIPFS(event, setOption1)}
-                    />
-                    <input
-                        type="file"
-                        id="file2"
-                        name="option2"
-                        accept="image/*"
-                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
-                        onChange={(event) => pinFileToIPFS(event, setOption2)}
-                    />
-                    <input
-                        type="file"
-                        id="file3"
-                        name="option3"
-                        accept="image/*"
-                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
-                        onChange={(event) => pinFileToIPFS(event, setOption3)}
-                    />
-                    <input
-                        type="file"
-                        id="file4"
-                        name="option4"
-                        accept="image/*"
-                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
-                        onChange={(event) => pinFileToIPFS(event, setOption4)}
-                    />
-                    <input
                         type="text"
                         name="title"
                         placeholder="Title"
-                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
+                        className="pl-3 cursor-pointer pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
                     />
+                    <div className="my-2">
+                    <div className="file-upload items-center justify-center">
+                        <label htmlFor="file1" className="flex items-center justify-center">
+                            {option1 ? (
+                                <img className="flex h-[250px] rounded-md" src={`https://turquoise-occasional-meerkat-627.mypinata.cloud/ipfs/${option1}?pinataGatewayToken=WO8LWfz8QTiolWn6Y93P0WzI3rjaVSi8xS3W8H2Kr6UDqsbNKIx2L8XbrrY1b9pl`} alt="Option 1" />
+                            ) : (
+                                <Image className="flex h-[250px] cursor-pointer rounded-md" src={require("./defaultimage.jpg")} alt="Upload Image" />
+                            )}
+                        </label>
+                        <input
+                            type="file"
+                            id="file1"
+                            name="option1"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={(event) => pinFileToIPFS(event, setOption1)}
+                        />
+                    </div>
+                    <div className="file-upload items-center justify-center">
+                        <label htmlFor="file2" className="flex items-center justify-center">
+                            {option2 ? (
+                                <img className="flex h-[250px] rounded-md" src={`https://turquoise-occasional-meerkat-627.mypinata.cloud/ipfs/${option2}?pinataGatewayToken=WO8LWfz8QTiolWn6Y93P0WzI3rjaVSi8xS3W8H2Kr6UDqsbNKIx2L8XbrrY1b9pl`} alt="Option 2" />
+                            ) : (
+                                <Image className="flex h-[250px] rounded-md cursor-pointer" src={require("./defaultimage.jpg")} alt="Upload Image" />
+                            )}
+                        </label>
+                        <input
+                            type="file"
+                            id="file2"
+                            name="option2"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={(event) => pinFileToIPFS(event, setOption2)}
+                        />
+                    </div>
+                    <div className="file-upload items-center justify-center">
+                        <label htmlFor="file3" className="flex items-center justify-center">
+                            {option3 ? (
+                                <img className="flex h-[250px] rounded-md" src={`https://turquoise-occasional-meerkat-627.mypinata.cloud/ipfs/${option3}?pinataGatewayToken=WO8LWfz8QTiolWn6Y93P0WzI3rjaVSi8xS3W8H2Kr6UDqsbNKIx2L8XbrrY1b9pl`} alt="Option 2" />
+                            ) : (
+                                <Image className="flex h-[250px] rounded-md cursor-pointer" src={require("./defaultimage.jpg")} alt="Upload Image" />
+                            )}
+                        </label>
+                        <input
+                            type="file"
+                            id="file3"
+                            name="option3"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={(event) => pinFileToIPFS(event, setOption3)}
+                        />
+                    </div>
+                    <div className="file-upload items-center justify-center">
+                        <label htmlFor="file4" className="flex items-center justify-center">
+                            {option4 ? (
+                                <img className="flex h-[250px] rounded-md" src={`https://turquoise-occasional-meerkat-627.mypinata.cloud/ipfs/${option4}?pinataGatewayToken=WO8LWfz8QTiolWn6Y93P0WzI3rjaVSi8xS3W8H2Kr6UDqsbNKIx2L8XbrrY1b9pl`} alt="Option 2" />
+                            ) : (
+                                <Image className="flex h-[250px] rounded-md cursor-pointer" src={require("./defaultimage.jpg")} alt="Upload Image" />
+                            )}
+                        </label>
+                        <input
+                            type="file"
+                            id="file4"
+                            name="option4"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={(event) => pinFileToIPFS(event, setOption4)}
+                        />
+                    </div>
                     <div className={"pt-2 flex justify-end"}>
                         <button
                             className={clsx(
@@ -168,6 +206,7 @@ export function PollCreateForm() {
                         >
                             Create
                         </button>
+                    </div>
                     </div>
                 </form>
             </div>
