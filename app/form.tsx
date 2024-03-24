@@ -42,6 +42,7 @@ export function PollCreateForm() {
 
     async function pinFileToIPFS(event: React.ChangeEvent<HTMLInputElement>, optionSetter: React.Dispatch<React.SetStateAction<string>>) {
         const formData = new FormData();
+        // @ts-ignore
         const file = event.target.files[0];
         formData.append('file', file);
         const pinataMetaData = JSON.stringify({
