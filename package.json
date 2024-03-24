@@ -11,7 +11,10 @@
   "dependencies": {
     "@farcaster/hub-nodejs": "^0.11.8",
     "@vercel/kv": "^1.0.1",
+    "axios": "^1.6.8",
     "clsx": "^2.1.0",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
     "geist": "^1.2.2",
     "next": "14.1.4",
     "react": "^18",

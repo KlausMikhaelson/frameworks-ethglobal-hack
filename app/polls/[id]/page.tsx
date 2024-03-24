@@ -26,6 +26,8 @@ async function getPoll(id: string): Promise<Poll> {
             return nullPoll;
         }
 
+        console.log(poll);
+
         return poll;
     } catch (error) {
         console.error(error);
